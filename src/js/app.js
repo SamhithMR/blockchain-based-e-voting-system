@@ -29,7 +29,7 @@ App = {
     
     $.getJSON("Contest.json",function(contest){
       App.contracts.Contest=TruffleContract(contest);
-
+      
       App.contracts.Contest.setProvider(web3.currentProvider);
 
   

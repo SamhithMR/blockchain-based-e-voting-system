@@ -88,5 +88,5 @@ module.exports = {
       1: app,
   },
 },
-port:3000,
+port:3002,
 };
