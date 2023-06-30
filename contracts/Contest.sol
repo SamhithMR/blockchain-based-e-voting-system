@@ -1,7 +1,6 @@
 pragma solidity 0.5.16;
 
 contract Contest{
-	
 	struct Contestant{
 		uint id;
 		string name;
@@ -10,13 +9,11 @@ contract Contest{
 		uint age;
 		string qualification;
 	}
-
 	struct Voter{
 		bool hasVoted;
 		uint vote;
 		bool isRegistered;
 	}
-
 	address admin;
 	mapping(uint => Contestant) public contestants; 
    // mapping(address => bool) public voters;
@@ -35,14 +32,11 @@ contract Contest{
 	    require(state==x);
 	    _;
 	}
-
 	constructor() public{
 		admin=msg.sender;
         state=PHASE.reg;
 		// counter = 0;
-
 	}
-
     function changeState(PHASE x) onlyAdmin public{
 		require(x > state);
         state = x;

@@ -1,8 +1,6 @@
 var express = require('express');
 var router = express.Router();
-/* GET users listing. */
-// const express=require('express');
-// const app=express()
+
 var conn=require('../database');
 
 router.get('/form', function(req, res, next) {
@@ -20,22 +18,16 @@ var getAge = require('get-age');
 
 var nodemailer = require('nodemailer');
 var rand=Math.floor((Math.random() * 10000) + 54);
-console.log(rand)
 var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'sk19ec032@gmail.com',
-      pass: 'juzxjpttxusdqfkx'
+      user: 'youremail@gmail.com',
+      pass: 'email_pass'
     }
   });
 
 var account_address;
 var data;
-
-// app.use(express.static('public'));
-// //app.use('/css',express.static(__dirname+'public/css'));
-// //app.use(express.json());
-// app.use(express.urlencoded());
 
 router.post('/registerdata',function(req,res){
     var dob=[];
@@ -58,7 +50,7 @@ router.post('/registerdata',function(req,res){
           if (age>=18)
           {
             var mailOptions = {
-                from: 'sk19ec032@gmail.com',
+                from: 'youremail@gmail.com',
                 to: email,
                 subject : "Please confirm your Email account",
                 text : "Hello, Your otp is "+rand	
@@ -127,8 +119,6 @@ router.post('/otpverify', (req, res) => {
        res.render('voter-registration.ejs',{alertMsg:"Session Expired! , You have entered wronge OTP "});
     }
 })
-
-
 
 // router.get('/register',function(req,res){
 //     res.sendFile(__dirname+'/views/index.html')
